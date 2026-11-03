@@ -1,0 +1,45 @@
+#!/bin/bash
+#SBATCH --job-name outgroup
+#SBATCH --nodes=1
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=wzhcnormal
+#SBATCH -e outgroup.err
+#SBATCH -o outgroup.log
+
+set -euo pipefail
+
+CONDA_BASE="/work/home/songjiaxu/anaconda3"
+source "${CONDA_BASE}/bin/activate" "hmmix"
+
+BASE_DIR="/work/home/songjiaxu/introgression/data_HMM_intro/GRCh38"
+
+# 输入
+YRI_VCF="${BASE_DIR}/data/yri/by_chr/chr*.vcf.gz"
+ANCESTRAL="${BASE_DIR}/../hg38_ancestral/homo_sapiens_ancestor_*.fa"
+REFGENOME="${BASE_DIR}/data/ref_hg38/chr*.fa"   # 从 /work/share/acc2159rgq/reference/hg38/ 拆分
+WEIGHTS="${BASE_DIR}/../hg38_strick_callability_mask.bed"
+
+# 输出
+OUTDIR="${BASE_DIR}/HMM_train/output"
+mkdir -p "${OUTDIR}"
+OUTFILE="${OUTDIR}/outgroup.txt"
+
+# YRI 个体列表 (逗号分隔)
+YRI_IND="NA18486,NA18488,NA18489,NA18498,NA18499,NA18501,NA18502,NA18504,NA18505,NA18507,NA18508,NA18510,NA18511,NA18516,NA18517,NA18519,NA18520,NA18522,NA18523,NA18853,NA18856,NA18858,NA18861,NA18864,NA18865,NA18867,NA18868,NA18870,NA18871,NA18873,NA18874,NA18876,NA18877,NA18878,NA18879,NA18881,NA18907,NA18908,NA18909,NA18910,NA18912,NA18915,NA18916,NA18917,NA18923,NA18924,NA18933,NA18934,NA19092,NA19093,NA19095,NA19096,NA19098,NA19099,NA19102,NA19107,NA19108,NA19113,NA19114,NA19116,NA19117,NA19118,NA19119,NA19121,NA19129,NA19130,NA19131,NA19137,NA19138,NA19141,NA19143,NA19144,NA19146,NA19147,NA19149,NA19152,NA19153,NA19159,NA19160,NA19171,NA19172,NA19175,NA19184,NA19185,NA19189,NA19190,NA19197,NA19198,NA19200,NA19201,NA19204,NA19206,NA19207,NA19209,NA19210,NA19213,NA19214,NA19222,NA19223,NA19225,NA19235,NA19236,NA19238,NA19239,NA19247,NA19248,NA19256,NA19257"
+
+echo "============================================"
+echo "create_outgroup — YRI108"
+echo "输出: ${OUTFILE}"
+echo "============================================"
+
+hmmix create_outgroup \
+    -ind="${YRI_IND}" \
+    -vcf="${YRI_VCF}" \
+    -weights="${WEIGHTS}" \
+    -out="${OUTFILE}" \
+    -ancestral="${ANCESTRAL}" \
+    -refgenome="${REFGENOME}"
+
+echo "完成: ${OUTFILE}"
+wc -l "${OUTFILE}"

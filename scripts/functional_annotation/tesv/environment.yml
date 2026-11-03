@@ -1,0 +1,14 @@
+name: tesv-annotation
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=3.0.3
+  - r-base=4.5.3
+  - bioconductor-edger=4.8.2
+  - bioconductor-limma=3.66.0
+  - r-statmod=1.5.2
+  - ucsc-liftover
+  - cooler=0.10.4

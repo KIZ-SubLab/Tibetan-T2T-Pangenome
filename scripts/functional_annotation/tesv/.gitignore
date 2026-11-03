@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+data/
+results/
+*.bam
+*.bai
+*.bigWig
+*.bw
+*.mcool
+*.vcf*
