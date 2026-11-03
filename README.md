@@ -18,7 +18,8 @@ The study examines genomic diversity in Tibetans and investigates how structural
 | [Assembly quality control](qc/) | Yak quality values and trio evaluation, Inspector, and QUAST. |
 | [Genome annotation](genome_annotation/) | Telomere architecture, telomeric variant repeats, centromeric satellites, and higher-order repeats. |
 | [Pangenome construction and genotyping](pangenome/) | Minigraph-Cactus graphs, graph VCF processing, and PanGenie genotyping. |
-| [Structural variant discovery](structural_variants/) | Structural variant calling from HiFi reads and phased assemblies. |
+| [Structural variant discovery and merging](structural_variants/) | SV calling from HiFi reads and phased assemblies, callset integration, and genotype refinement. |
+| [Tandem repeat analysis](tandem_repeats/) | Tandem repeat genotyping, population differentiation, and repeat motif annotation for Figure 5. |
 | [Selection simulations](selection/) | Coalescent simulations for empirical population branch statistic (PBS) significance. |
 | [Archaic introgression](introgression/) | Archaic segment detection, SV genotyping, haplotype analyses, and local genealogies. |
 | [Functional annotation and enrichment](functional_annotation/) | TESV regulatory annotation, hypoxia response models, and enrichment of candidate genes for GWAS traits and hypoxia pathways. |

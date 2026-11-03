@@ -1,7 +1,11 @@
-# SV calling pipeline
+# Structural variant discovery and merging
 
 SV discovery from PacBio HiFi reads and haplotype-resolved assemblies against
 T2T-CHM13 v2.0.
+
+The [SV merge workflow](SV_merge/) integrates per-caller VCFs across callers and samples. It also includes genotype refinement and a separate inversion merge.
+
+## SV callers
 
 | Script | Input | Caller |
 |---|---|---|
@@ -9,6 +13,7 @@ T2T-CHM13 v2.0.
 | `02_pbsv.sh` | HiFi reads | pbmm2 + PBSV v2.9.0 |
 | `03_svim_asm.sh` | hap1/hap2 assemblies | minimap2 (asm5) + SVIM-asm v1.0.3 |
 | `04_pav.sh` | hap1/hap2 assemblies | PAV v1.1.2 |
+| `05_lgvar.sh` | hap1/hap2 assemblies and alignments | LGvar v1.4.1 |
 
 ## Requirements
 
@@ -18,6 +23,7 @@ T2T-CHM13 v2.0.
 - pbsv v2.9.0 (includes pbmm2)
 - SVIM-asm v1.0.3
 - PAV v1.1.2
+- LGvar v1.4.1 and Singularity for the LGvar workflow
 
 ## Inputs
 
@@ -37,10 +43,10 @@ bash 01_sniffles2.sh
 bash 02_pbsv.sh
 bash 03_svim_asm.sh
 bash 04_pav.sh
+bash 05_lgvar.sh
 ```
 
-Each script performs alignment (read-based callers only), SV calling, and
-filtering in one run.
+The read-based workflows align the reads before calling and filtering. The LGvar workflow uses precomputed assembly alignments.
 
 ## Filtering
 
