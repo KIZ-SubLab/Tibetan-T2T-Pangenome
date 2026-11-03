@@ -1,9 +1,11 @@
-# TESV functional annotation
+# Functional annotation and enrichment
 
 This workflow annotates Tibetan-enriched structural variants (TESVs) with
 ENCODE4 candidate cis-regulatory elements (cCREs). It models population and time
 effects in HUVEC ATAC-seq and RNA-seq data and tests enrichment against matched
 structural variants. Run the commands from this directory.
+
+The [trait and hypoxia gene enrichment workflow](trait_enrichment/) analyzes selection and TESV candidate genes for Figure 4 using GWAS trait annotations and a curated hypoxia-related gene set.
 
 ## Contents
 
