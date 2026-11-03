@@ -1,10 +1,9 @@
-# TESV functional annotation: analysis-only code
+# TESV functional annotation
 
-Core analysis for Tibetan-enriched structural variants (TESVs): ENCODE4 cCRE
-annotation, population/time effects in HUVEC ATAC/RNA, and matched-SV enrichment.
-No plotting scripts, source-data tables, participant data, or cluster job scripts
-are included. Run commands from this directory. Original analysis files are
-unchanged; this is a reviewed publication snapshot, not a new biological analysis.
+This workflow annotates Tibetan-enriched structural variants (TESVs) with
+ENCODE4 candidate cis-regulatory elements (cCREs). It models population and time
+effects in HUVEC ATAC-seq and RNA-seq data and tests enrichment against matched
+structural variants. Run the commands from this directory.
 
 ## Contents
 

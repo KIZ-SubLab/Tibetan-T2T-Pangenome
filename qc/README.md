@@ -49,7 +49,7 @@ ${HIFI_QC_DIR}/${child}/${child}.hifi_reads.filt.fastq.gz
 ## Usage
 
 ```bash
-cd QC
+cd qc
 # edit paths and references
 vim config.sh
 

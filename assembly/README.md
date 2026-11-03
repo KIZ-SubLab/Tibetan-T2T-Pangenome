@@ -76,7 +76,7 @@ k-mer sets are generated once per sample:
 ## Usage
 
 ```bash
-cd genome_assembly
+cd assembly
 # edit paths, sample sheet location and threads
 vim config.sh
 
